@@ -33,10 +33,9 @@ blockDim.x equal to 4
 gridDim.x equal to 4
 ```
 
-<center>
-![grid_and_block](imgs/cuda-grid.png)
-</center>
-
+<div align=center>
+   <img src="imgs/cuda-grid.png"/>
+</div>
 
 ### reference links
 * [Official E-book CUDA C Programming Guide](https://docs.nvidia.com/cuda/archive/9.2/cuda-c-programming-guide/index.html#kernels)
