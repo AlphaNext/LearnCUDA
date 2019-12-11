@@ -6,13 +6,14 @@ There is a limit to the number of threads per block, since all threads of a bloc
 ### 2D grid
 
 Thread Index (threadIdx) and ThreadId
+
     * In 1-D: For one block, the unique threadId of thread of index (x) = x or threadIdx.x = x; Maximum size problem: 1024 threads   
 
     * In 2-D, with block of size (Dx, Dy), the unique threadId of thread with index (x,y): threadId= x+y*Dx, threadIdx.x = x; threadIdx.y = y   
 
-    * In 3-D, with block of size (Dx,Dy, Dz), the unique threadID of thread with index (x,y,z): threadId = x+y*Dx+z*Dx*Dz, threadIdx.x = x; threadIdx.y = y; threadIdx.z = z
+    * In 3-D, with block of size (Dx,Dy, Dz), the unique threadID of thread with index (x,y,z): threadId = x+y*Dx+z*Dx*Dz, threadIdx.x = x; threadIdx.y = y; threadIdx.z = z   
 
-    * Total number of threads = Thread_per_block* Number of blocks
+    * Total number of threads = Thread_per_block* Number of blocks   
 
 Max number of threads_per_block = 1024 for Cuda Capability 2.0 +, Max dimensions of thread block (1024,1024, 64) but max threads 1024, **Typical sizes: (16, 16), (32, 32) optimum size will depend on program.**
 
@@ -71,9 +72,10 @@ T* pElement = (T*)((char*)BaseAddress + Row * pitch) + Column;
 * 2019/12/10
     * Error1: number of threads in each block should be less than 1024
     * Error2: cudaMallocPitch allocates bytes in device should consider alignment restrictions
+    * Error3: cudaMemcpyHostToDevice need tow pointers, one is in host, the other is in device
     * 错误1：把单个block的thread数量的限制没搞清，需要<1024
     * 错误2：cudaMallocPitch函数的在分配到device上的空间的字节对齐问题
-
+    * 错误3：cudaMemcpyHostToDevice需要一方的指针时device端一方指针时host端
 
 
 

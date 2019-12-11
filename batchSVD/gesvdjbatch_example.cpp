@@ -1,5 +1,7 @@
 // https://docs.nvidia.com/cuda/cusolver/index.html#batchgesvdj-example1
 /*
+ * number of rows of matrix Aj. m is no greater than 32.
+ * number of columns of matrix Aj. n is no greater than 32.
  * How to compile (assume cuda is installed at /usr/local/cuda/)
  *   nvcc -c -I/usr/local/cuda/include gesvdjbatch_example.cpp
  *   g++ -o gesvdjbatch_example gesvdjbatch_example.o -L/usr/local/cuda/lib64 -lcusolver -lcudart
